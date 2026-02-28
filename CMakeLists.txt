@@ -87,3 +87,9 @@ target_link_libraries(oead
     yaml
     zlib
 )
+
+# C API wrapper shared library for P/Invoke
+add_library(oead_capi SHARED oead_capi.cpp)
+target_link_libraries(oead_capi PRIVATE oead)
+target_include_directories(oead_capi PRIVATE src/include src/ lib/nonstd lib/EasyIterator/include)
+
